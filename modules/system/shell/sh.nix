@@ -1,14 +1,13 @@
 { config, pkgs, SystemConfig, UserConfig, lib, ... }:
 
-let 
+let
   Aliases = {
     ll = "ls -l";
     ".." = "cd ..";
     nix-rebuild = "sudo nixos-rebuild switch --flake .#${SystemConfig.host}";
     revachol = "cd .revachol";
     "configuration.nix" = "sudo nvim hosts/${SystemConfig.host}/configuration.nix";
-    "home.nix" = "sudo nvim hosts/${SystemConfig.host}/${SystemConfig.hostname}.nix";
-
+    "home.nix" = "sudo nvim hosts/${SystemConfig.host}/home.nix";
   };
 in
 {
@@ -30,7 +29,7 @@ in
     (lib.mkIf config.modules.shell-extension.enable {
       environment.systemPackages = with pkgs; [
         ncdu
-	btop
+        btop
       ];
     })
   ];
