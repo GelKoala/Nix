@@ -8,7 +8,8 @@
     users.users.${UserConfig.username}.extraGroups = [ "docker" ];
 
     environment.systemPackages = with pkgs; [
-      docker-desktop
+      docker
+      docker-compose
     ];
   };
 }
