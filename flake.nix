@@ -19,5 +19,5 @@
   };
 
   outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (inputs."import-tree" ./parts);
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs."import-tree" ./tree/parts);
 }

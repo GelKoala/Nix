@@ -1,5 +1,4 @@
 { config, lib, pkgs, UserConfig, ... }:
-
 {
   options.modules.system.docker.enable = lib.mkEnableOption "docker";
 
