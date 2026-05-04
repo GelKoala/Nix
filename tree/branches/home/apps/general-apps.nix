@@ -6,6 +6,8 @@
     home.packages = with pkgs; [
       spotify
       keepassxc
+      codex
+      codex-acp
     ];
   };
 }

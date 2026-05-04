@@ -16,9 +16,22 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wrapper-modules = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (inputs."import-tree" ./tree/parts);
-   
+    let
+      inherit (import ./tree/lib/variables.nix) SystemConfig;
+      parts = inputs."import-tree" ./tree/parts;
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      parts
+      // {
+        systems = [ SystemConfig.system ];
+      }
+    );
+
 }
