@@ -8,6 +8,6 @@
   modules.user = {
     zen-browser.enable = true;
     kde-extensions.enable = true;
-    spotify.enable = true;
+    general-apps.enable = true;
   };
 }
