@@ -1,0 +1,9 @@
+{ ... }:
+{
+  window-rule = {
+    geometry-corner-radius = 0;
+    clip-to-geometry = true;
+    tiled-state = true;
+    draw-border-with-background = false;
+  };
+}

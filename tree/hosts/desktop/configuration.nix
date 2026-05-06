@@ -9,8 +9,7 @@
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  nixpkgs.config.allowUnfree = true;
   modules = {
     shell-extension.enable = true;
     system.docker.enable = true;

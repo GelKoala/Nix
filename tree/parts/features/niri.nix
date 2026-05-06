@@ -10,22 +10,8 @@
   perSystem = { pkgs, lib, self', ... }: {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
-      settings = {
-        spawn-at-startup = [
-          (lib.getExe self'.packages.myNoctalia)
-        ];
-        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
-        input.keyboard = {xkb.layout = "br";};
-        layout.gaps = 2;
-        binds = {
-          "Mod+T".spawn-sh = lib.getExe pkgs.kitty;
-          "Mod+Q".close-window = _: {};
-          "Mod+Left".focus-column-left = _: {};
-          "Mod+Right".focus-column-right = _: {};
-          "Mod+Shift+Left".move-column-left = _: {};
-          "Mod+Shift+Right".move-column-right = _: {};
-          "Mod+D".spawn-sh = lib.getExe pkgs.vesktop;
-        };
+      settings = import ./_niri/niri-settings.nix {
+        inherit pkgs lib self' inputs;
       };
     };
   };
