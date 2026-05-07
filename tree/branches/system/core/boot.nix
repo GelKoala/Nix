@@ -9,7 +9,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     initrd.verbose = false;
     plymouth.enable = true;
     consoleLogLevel = 3;
