@@ -24,14 +24,12 @@
 
   outputs = inputs@{ flake-parts, ... }:
     let
-      inherit (import ./tree/lib/variables.nix) SystemConfig;
+      inherit (import ./tree/parts/_settings.nix) SystemConfig UserConfig;
       parts = inputs."import-tree" ./tree/parts;
     in
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      parts
-      // {
-        systems = [ SystemConfig.system ];
-      }
-    );
+    flake-parts.lib.mkFlake { inherit inputs; } (parts // {
+      systems = [ SystemConfig.system ];
+      _module.args = { inherit SystemConfig UserConfig; };
+    });
 
 }

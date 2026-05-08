@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     self.nixosModules.niri
-    (inputs."import-tree" ../../branches/system)
+    (inputs."import-tree" ../../modules/system)
   ];
 
   programs.direnv.enable = true;

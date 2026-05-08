@@ -1,10 +1,14 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
   imports = [
-    (inputs."import-tree" ../../branches/home)
+    (inputs."import-tree" ../../modules/home)
+    self.modules.shell
   ];
 
+  modules.shell.kitty = {
+    enable = true;
+  };
   modules.user = {
     zen-browser.enable = true;
     kde-extensions.enable = true;
