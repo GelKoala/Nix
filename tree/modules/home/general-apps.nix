@@ -8,6 +8,7 @@
       keepassxc
       codex
       codex-acp
+      discord
     ];
   };
 }

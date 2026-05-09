@@ -10,5 +10,6 @@
     "Mod+D".spawn-sh = lib.getExe pkgs.vesktop;
     "Mod+B".spawn-sh = lib.getExe inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
     "Mod+S".spawn-sh = "spotify";
+    "Mod+O".spawn-sh = "obsidian";
   };
 }

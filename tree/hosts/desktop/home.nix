@@ -4,8 +4,12 @@
   imports = [
     (inputs."import-tree" ../../modules/home)
     self.modules.shell
+    self.modules.home
   ];
 
+  modules.home = {
+    obsidian.enable = true;
+  };
   modules.shell.kitty = {
     enable = true;
   };
