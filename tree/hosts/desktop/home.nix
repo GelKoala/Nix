@@ -7,6 +7,12 @@ in
     self.modules.home
   ];
 
+  home = {
+    username = UserConfig.username;
+    homeDirectory = "/home/${UserConfig.username}";
+    stateVersion = "25.11";
+  };
+
   modules.home = dubois.enableAll [
     "obsidian"
     "zen-browser"
