@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
   environment.systemPackages = with pkgs; [
     vim
@@ -9,6 +9,9 @@
     gnome-disk-utility
   ];
 
+  nixpkgs.overlays = [
+    self.overlays.default
+  ];
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.11";

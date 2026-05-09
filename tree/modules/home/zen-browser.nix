@@ -1,10 +1,10 @@
 { inputs, pkgs, config, lib, ... }:
-{
-  options.modules.user.zen-browser.enable = lib.mkEnableOption "zen-browser";
-
-  config = lib.mkIf config.modules.user.zen-browser.enable {
-    home.packages = [
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+let cfg = config.modules.home.zen-browser;
+in {
+  options.modules.home.zen-browser.enable = lib.mkEnableOption "zen-browser";
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      zen-browser
     ];
   };
 }

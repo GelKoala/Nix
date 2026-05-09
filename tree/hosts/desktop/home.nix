@@ -1,20 +1,18 @@
-{ inputs, self, ... }:
-
+{ inputs, self, lib, ... }:
+let dubois = import ../../modules/home/_helpers.nix { inherit lib; };
+in
 {
   imports = [
     (inputs."import-tree" ../../modules/home)
-    self.modules.shell
     self.modules.home
   ];
 
-  modules.home = {
-    obsidian.enable = true;
-  };
-  modules.shell.kitty = {
-    enable = true;
-  };
+  modules.home = dubois.enableAll [
+    "obsidian"
+    "zen-browser"
+    "kitty"
+  ];
   modules.user = {
-    zen-browser.enable = true;
     kde-extensions.enable = true;
     general-apps.enable = true;
   };

@@ -1,4 +1,4 @@
-{ self, inputs, SystemConfig, UserConfig, ... }:
+{ self, inputs, SystemConfig, UserConfig, scriptHome, ... }:
 let
   hostDir = ../hosts/${SystemConfig.host};
 in
