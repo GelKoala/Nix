@@ -1,14 +1,17 @@
 { input, config, lib, pkgs, ... }:
+let cfg = config.modules.home.generalApps;
+in
 {
-  options.modules.user.general-apps.enable = lib.mkEnableOption "general-apps";
+  options.modules.home.generalApps.enable = lib.mkEnableOption "general-apps";
 
-  config = lib.mkIf config.modules.user.general-apps.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      hello
       spotify
       keepassxc
       codex
       codex-acp
-      discord
+      vesktop
     ];
   };
 }

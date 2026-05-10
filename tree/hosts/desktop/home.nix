@@ -1,12 +1,9 @@
-{ inputs, self, lib, ... }:
+{ inputs, self, lib, UserConfig, ... }:
 let dubois = import ../../modules/home/_helpers.nix { inherit lib; };
 in
 {
-  imports = [
-    (inputs."import-tree" ../../modules/home)
-    self.modules.home
-  ];
-
+  imports = [ self.modules.home ];
+  programs.home-manager.enable = true;
   home = {
     username = UserConfig.username;
     homeDirectory = "/home/${UserConfig.username}";
@@ -17,9 +14,7 @@ in
     "obsidian"
     "zen-browser"
     "kitty"
+    "generalApps"
+    "kdeExtensions"
   ];
-  modules.user = {
-    kde-extensions.enable = true;
-    general-apps.enable = true;
-  };
 }
