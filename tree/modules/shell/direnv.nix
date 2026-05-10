@@ -2,7 +2,7 @@
 let cfg = config.modules.shell.direnv;
 in {
   options.modules.shell.direnv.enable =
-    lib.mkEnableOption "DirEnv"
+    lib.mkEnableOption "DirEnv";
 
   config = lib.mkIf cfg.enable {
     programs.direnv = {

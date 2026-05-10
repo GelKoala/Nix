@@ -2,7 +2,7 @@
 let dubois = import ../../modules/home/_helpers.nix { inherit lib; };
 in
 {
-  imports = [ self.modules.home ];
+  imports = [ self.modules.home self.modules.shell ];
   programs.home-manager.enable = true;
   home = {
     username = UserConfig.username;
@@ -10,11 +10,16 @@ in
     stateVersion = "25.11";
   };
 
-  modules.home = dubois.enableAll [
-    "obsidian"
-    "zen-browser"
-    "kitty"
-    "generalApps"
-    "kdeExtensions"
-  ];
+  modules = {
+    home = dubois.enableAll [
+      "obsidian"
+      "zen-browser"
+      "kitty"
+      "generalApps"
+      "kdeExtensions"
+    ];
+    shell = dubois.enableAll [
+      "direnv"
+    ];
+  };
 }
