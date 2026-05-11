@@ -25,12 +25,12 @@ in
         mangohud
         protonup-qt
         heroic
-        bottles
+        #bottles
       ];
-      sessionVariables = {
-        STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-          "/home/${UserConfig.username}/.steam/root/compatibilitytools.d";
-      };
+      #sessionVariables = {
+      #  STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      #    "/home/${UserConfig.username}/.steam/root/compatibilitytools.d";
+      #};
     };
   };
 }

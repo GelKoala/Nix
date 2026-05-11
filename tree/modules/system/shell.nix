@@ -21,7 +21,7 @@ in {
         bash = { enable = true; shellAliases = aliases; };
       };
     }
-    (lib.mkIf config.modules.shell-extension.enable {
+    (lib.mkIf config.modules.system.shell-extension.enable {
       environment.systemPackages = with pkgs; [
         ncdu
         btop
