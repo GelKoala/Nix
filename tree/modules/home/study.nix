@@ -1,16 +1,17 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.modules.home.obsidian;
+  cfg = config.modules.home.study-stuff;
 in
 {
-  options.modules.home.obsidian.enable =
-    lib.mkEnableOption "Obsidian";
+  options.modules.home.study-stuff.enable =
+    lib.mkEnableOption "Study";
 
   config = lib.mkIf cfg.enable {
-      home.packages = with pkgs; [
-        obsidian
-	      zed-editor
-      ];
-    };
+    home.packages = with pkgs; [
+      obsidian
+      zed-editor
+      siyuan
+    ];
+  };
 }
