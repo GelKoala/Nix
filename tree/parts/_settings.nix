@@ -5,6 +5,7 @@
       timezone = "America/Sao_Paulo";
       locale   = "pt_BR.UTF-8";
       host     = "desktop";
+      gpu      = "amdgpu";
     };
 
     UserConfig = {

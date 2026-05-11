@@ -12,7 +12,7 @@ in
 
   modules = {
     home = dubois.enableAll [
-      "obsidian"
+      "study-stuff"
       "zen-browser"
       "kitty"
       "generalApps"

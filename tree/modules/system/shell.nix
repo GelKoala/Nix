@@ -1,6 +1,5 @@
 { config, pkgs, SystemConfig, lib, ... }:
-let
-  aliases = {
+let aliases = {
     ll = "ls -l";
     ".." = "cd ..";
     nix-rebuild = "sudo nixos-rebuild switch --flake .#${SystemConfig.host}";
@@ -8,9 +7,9 @@ let
     "configuration.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/configuration.nix";
     "home.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/home.nix";
   };
-in
-{
-  options.modules.shell-extension.enable = lib.mkEnableOption "shell-extension";
+in {
+  options.modules.system.shell-extension.enable =
+    lib.mkEnableOption "shell-extension";
 
   config = lib.mkMerge [
     {
@@ -18,14 +17,10 @@ in
       users.defaultUserShell = pkgs.zsh;
 
       programs = {
-        zsh.enable = true;
-        bash.enable = true;
+        zsh = { enable = true; shellAliases = aliases; };
+        bash = { enable = true; shellAliases = aliases; };
       };
-
-      programs.bash.shellAliases = aliases;
-      programs.zsh.shellAliases = aliases;
     }
-
     (lib.mkIf config.modules.shell-extension.enable {
       environment.systemPackages = with pkgs; [
         ncdu

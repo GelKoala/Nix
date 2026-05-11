@@ -12,6 +12,8 @@ in
       obsidian
       zed-editor
       siyuan
+      speedcrunch
+      xournalpp
     ];
   };
 }
