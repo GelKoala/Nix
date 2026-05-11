@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [
-    pkgs.cachix
+  environment.systemPackages = with pkgs; [
+    cachix
   ];
 }
