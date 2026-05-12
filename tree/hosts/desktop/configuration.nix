@@ -8,10 +8,12 @@ in {
   ];
 
   nixpkgs.config.allowUnfree = true;
-  modules.system = dubois.enableAll [
-    "shell-extension"
-    "gaming"
-  ];
+  modules = {
+    system = dubois.enableAll [
+      "shell-extension"
+      "games"
+    ];
+  };
   programs = {
     direnv = { enable = true; nix-direnv.enable = true; };
   };

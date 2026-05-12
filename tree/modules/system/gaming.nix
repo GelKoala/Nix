@@ -1,10 +1,10 @@
 { config, lib, pkgs, SystemConfig, UserConfig, ... }:
 
 let
-  cfg = config.modules.system.gaming;
+  cfg = config.modules.system.games;
 in
 {
-  options.modules.system.gaming.enable =
+  options.modules.system.games.enable =
     lib.mkEnableOption "system gaming-stuff";
 
   config = lib.mkIf cfg.enable {
