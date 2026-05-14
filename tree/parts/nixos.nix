@@ -13,6 +13,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "backup";
           extraSpecialArgs = { inherit self SystemConfig UserConfig inputs; };
           users.${UserConfig.username} = import (hostDir + "/home.nix");
         };

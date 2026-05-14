@@ -11,9 +11,14 @@
     UserConfig = {
       username = "gelkola";
       name     = "GelKola";
+      
+	#Variaveis
       wm       = "niri";
       wmType   = "wayland";
       browser  = "zen-browser";
+      fileManager = "dolphin";
+      pdf = "zen-browser";
+      imageViewer = "qimgv";
     };
 }
 

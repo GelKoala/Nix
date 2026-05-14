@@ -17,6 +17,7 @@ in
       "kitty"
       "generalApps"
       "kdeExtensions"
+      "defaultApps"
     ];
     shell = dubois.enableAll [
       "direnv"

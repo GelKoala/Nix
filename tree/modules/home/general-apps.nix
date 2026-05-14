@@ -12,6 +12,7 @@ in
       codex
       codex-acp
       vesktop
+      qimgv
     ];
   };
 }
