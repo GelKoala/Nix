@@ -29,7 +29,7 @@ in
       heroic
       gamescope
       vulkan-tools
-      glxinfo
+      mesa-demos
     ];
   };
 }

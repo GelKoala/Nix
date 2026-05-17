@@ -7,6 +7,7 @@
     git
     kitty
     gnome-disk-utility
+    kdePackages.partitionmanager
   ];
 
   nixpkgs.overlays = [
