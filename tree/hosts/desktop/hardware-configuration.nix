@@ -15,17 +15,19 @@
     extraModulePackages = [ ];
   };
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c87628f9-f488-4cc0-9347-f9d1a228da7b";
+    { device = "/dev/disk/by-uuid/17a7ec9a-b1de-4810-b532-fe9ef7319b08";
       fsType = "ext4";
     };
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E693-DAFD";
+    { device = "/dev/disk/by-uuid/40AB-5BBB";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/e01b9385-5469-43d0-a340-a1dacf646491"; }
+  ];
   services.fstrim.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
-  swapDevices = [ ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
