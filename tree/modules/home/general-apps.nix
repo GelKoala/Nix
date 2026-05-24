@@ -13,6 +13,8 @@ in
       codex-acp
       vesktop
       qimgv
+      vivaldi
+      protonmail-bridge
     ];
   };
 }

@@ -10,6 +10,7 @@
     gnome-disk-utility
     kdePackages.partitionmanager
     geeqie
+    playerctl
   ];
 
   nixpkgs.overlays = [

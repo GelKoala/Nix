@@ -6,4 +6,5 @@
     tiled-state = true;
     draw-border-with-background = false;
   };
+  prefer-no-csd = true;
 }
