@@ -14,19 +14,19 @@ in
         enable = true;
         defaultApplications = {
           #-------Browser--------
-           "applications/xhtml+xml" = "${UserConfig.browser}";
-          "text/html" = "${UserConfig.browser}";
-          "x-scheme-handler/http" = "${UserConfig.browser}";
-          "x-scheme-handler/https" = "${UserConfig.browser}";
+           "applications/xhtml+xml" = "${UserConfig.browser}.desktop";
+          "text/html" = "${UserConfig.browser}.desktop";
+          "x-scheme-handler/http" = "${UserConfig.browser}.desktop";
+          "x-scheme-handler/https" = "${UserConfig.browser}.desktop";
           #-------Image Viewer--------
-          "image/png" = "${UserConfig.imageViewer}";
-          "image/jpeg" = "${UserConfig.imageViewer}";
-          "image/webp" = "${UserConfig.imageViewer}";
-          "image/gif" = "${UserConfig.imageViewer}";
+          "image/png" = "${UserConfig.imageViewer}.desktop";
+          "image/jpeg" = "${UserConfig.imageViewer}.desktop";
+          "image/webp" = "${UserConfig.imageViewer}.desktop";
+          "image/gif" = "${UserConfig.imageViewer}.desktop";
           #-------  PDF --------
-          "application/pdf" = "${UserConfig.pdf}";
+          "application/pdf" = "${UserConfig.pdf}.desktop";
           #-------Directory-------
-          "inode/directory" = "${UserConfig.fileManager}";
+          "inode/directory" = "${UserConfig.fileManager}.desktop";
         };
       };
     };

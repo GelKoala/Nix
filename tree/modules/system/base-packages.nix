@@ -6,11 +6,9 @@
     wget
     git
     exfatprogs
-    kitty
     gnome-disk-utility
     kdePackages.partitionmanager
     geeqie
-    playerctl
   ];
 
   nixpkgs.overlays = [
