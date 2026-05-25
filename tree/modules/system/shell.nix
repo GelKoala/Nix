@@ -6,6 +6,7 @@ let aliases = {
     revachol = "cd .revachol";
     "configuration.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/configuration.nix";
     "home.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/home.nix";
+    "sleep" = "shutdown 120";
   };
 in {
   options.modules.system.shell-extension.enable =

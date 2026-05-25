@@ -21,7 +21,6 @@ in
   config = lib.mkIf (cfg.enable || isNiriSession) {
     programs.niri.enable = true;
     services.displayManager.defaultSession = SystemConfig.session;
-
     environment.systemPackages = with pkgs; [
       procps
       playerctl
