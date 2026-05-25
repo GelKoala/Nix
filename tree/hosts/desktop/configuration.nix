@@ -12,6 +12,7 @@ in {
     system = dubois.enableAll [
       "shell-extension"
       "games"
+      "niritalia"
     ];
   };
   programs = {
