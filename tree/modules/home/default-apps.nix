@@ -2,6 +2,7 @@
 
 let
   cfg = config.modules.home.defaultApps;
+  apps = UserConfig.apps;
 in
 {
   options.modules.home.defaultApps.enable =
@@ -14,19 +15,19 @@ in
         enable = true;
         defaultApplications = {
           #-------Browser--------
-           "applications/xhtml+xml" = "${UserConfig.browser}.desktop";
-          "text/html" = "${UserConfig.browser}.desktop";
-          "x-scheme-handler/http" = "${UserConfig.browser}.desktop";
-          "x-scheme-handler/https" = "${UserConfig.browser}.desktop";
+          "application/xhtml+xml" = apps.browser.desktop;
+          "text/html" = apps.browser.desktop;
+          "x-scheme-handler/http" = apps.browser.desktop;
+          "x-scheme-handler/https" = apps.browser.desktop;
           #-------Image Viewer--------
-          "image/png" = "${UserConfig.imageViewer}.desktop";
-          "image/jpeg" = "${UserConfig.imageViewer}.desktop";
-          "image/webp" = "${UserConfig.imageViewer}.desktop";
-          "image/gif" = "${UserConfig.imageViewer}.desktop";
+          "image/png" = apps.imageViewer.desktop;
+          "image/jpeg" = apps.imageViewer.desktop;
+          "image/webp" = apps.imageViewer.desktop;
+          "image/gif" = apps.imageViewer.desktop;
           #-------  PDF --------
-          "application/pdf" = "${UserConfig.pdf}.desktop";
+          "application/pdf" = apps.pdf.desktop;
           #-------Directory-------
-          "inode/directory" = "${UserConfig.fileManager}.desktop";
+          "inode/directory" = apps.fileManager.desktop;
         };
       };
     };

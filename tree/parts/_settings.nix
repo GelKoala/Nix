@@ -13,9 +13,23 @@
       username = "gelkola";
       name     = "GelKola";
 
-      browser  = "zen-browser";
-      fileManager = "dolphin";
-      pdf = "zen-browser";
-      imageViewer = "qimgv";
+      apps = {
+        browser = {
+          package = "zen-browser";
+          desktop = "zen.desktop";
+        };
+        fileManager = {
+          package = "dolphin";
+          desktop = "dolphin.desktop";
+        };
+        pdf = {
+          package = "zen-browser";
+          desktop = "zen.desktop";
+        };
+        imageViewer = {
+          package = "qimgv";
+          desktop = "qimgv.desktop";
+        };
+      };
     };
 }

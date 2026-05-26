@@ -1,4 +1,5 @@
-{ self, inputs, ... }:{
+{ self, inputs, ... }:
+{
 
   flake.nixosModules.niri = { pkgs, lib, ... }: {
     programs.niri = {
@@ -7,11 +8,18 @@
     };
   };
 
-  perSystem = { pkgs, lib, self', ... }: {
+  perSystem = { pkgs, lib, self', system, ... }:
+  let
+    unstablePkgs = import inputs.nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs;
+      pkgs = unstablePkgs;
       settings = import ./_niri/niri-settings.nix {
-        inherit pkgs lib self' inputs;
+        pkgs = unstablePkgs;
+        inherit lib self' inputs;
       };
     };
   };

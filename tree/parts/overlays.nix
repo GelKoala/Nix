@@ -2,7 +2,7 @@
 {
   flake.overlays.default = final: prev: {
     zen-browser = inputs.zen-browser.packages.${prev.stdenv.hostPlatform.system}.default;
-    stable = import inputs.nixpkgs-stable {
+    unstable = import inputs.nixpkgs-unstable {
       system = prev.stdenv.hostPlatform.system;
       config.allowUnfree = true;
     };

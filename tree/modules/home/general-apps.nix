@@ -13,7 +13,7 @@ in
       codex-acp
       vesktop
       qimgv
-      vivaldi
+      unstable.vivaldi
       protonmail-bridge
     ];
   };
