@@ -14,6 +14,7 @@ in
     home = dubois.enableAll [
       "study-stuff"
       "zen-browser"
+      "vivaldi"
       "kitty"
       "generalApps"
       "kdeExtensions"

@@ -7,14 +7,16 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       hello
-      spotify
+      unstable.spotify
       keepassxc
-      codex
-      codex-acp
+      unstable.codex
+      unstable.codex-acp
       vesktop
       qimgv
-      unstable.vivaldi
       protonmail-bridge
+      nodejs_24
+      pnpm
+      yarn
     ];
   };
 }
