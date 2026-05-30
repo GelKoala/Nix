@@ -19,6 +19,7 @@ in
       "generalApps"
       "kdeExtensions"
       "defaultApps"
+      "container"
     ];
     shell = dubois.enableAll [
       "direnv"

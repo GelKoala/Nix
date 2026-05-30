@@ -13,4 +13,7 @@ in {
       "games"
     ];
   };
+
+  virtualisation.podman.enable = true;
+  virtualisation.containers.registries.search = [ "docker.io" ];
 }

@@ -9,8 +9,7 @@ in
       hello
       unstable.spotify
       keepassxc
-      unstable.codex
-      unstable.codex-acp
+      unstable.claude-code
       vesktop
       qimgv
       protonmail-bridge
