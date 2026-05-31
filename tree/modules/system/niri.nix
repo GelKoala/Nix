@@ -31,8 +31,7 @@ in
       pavucontrol
       networkmanagerapplet
       upower
-    ] ++ [
-      config.programs.niri.package
+      swaybg
     ];
 
     services.upower.enable = true;

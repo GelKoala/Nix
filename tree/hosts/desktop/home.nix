@@ -20,6 +20,8 @@ in
       "kdeExtensions"
       "defaultApps"
       "container"
+      "niri"
+      "noctalia"
     ];
     shell = dubois.enableAll [
       "direnv"

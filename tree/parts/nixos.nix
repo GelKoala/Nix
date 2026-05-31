@@ -15,6 +15,7 @@ in
           useUserPackages = true;
           backupFileExtension = "backup";
           extraSpecialArgs = { inherit self SystemConfig UserConfig inputs; };
+          sharedModules = [ inputs.niri-flake.homeModules.niri ];
           users.${UserConfig.username} = import (hostDir + "/home.nix");
         };
       }

@@ -5,7 +5,7 @@
       "barType": "simple",
       "position": "left",
       "monitors": [],
-      "density": "mini",
+      "density": "compact",
       "showOutline": false,
       "showCapsule": false,
       "capsuleOpacity": 1,
@@ -20,9 +20,9 @@
       "marginHorizontal": 4,
       "frameThickness": 8,
       "frameRadius": 12,
-      "outerCorners": false,
+      "outerCorners": true,
       "hideOnOverview": true,
-      "displayMode": "always_visible",
+      "displayMode": "auto_hide",
       "autoHideDelay": 500,
       "autoShowDelay": 150,
       "showOnWorkspaceSwitch": true,
@@ -128,8 +128,8 @@
       "screenOverrides": []
     },
     "general": {
-      "avatarImage": "/storage/Media/Metal Gear 2 Art.jpg",
-      "dimmerOpacity": 0.09,
+      "avatarImage": "/storage/Media/pfp.jpg",
+      "dimmerOpacity": 0.21,
       "showScreenCorners": false,
       "forceBlackScreenCorners": false,
       "scaleRatio": 1,
@@ -199,11 +199,11 @@
       "tooltipsEnabled": true,
       "scrollbarAlwaysVisible": true,
       "boxBorderEnabled": false,
-      "panelBackgroundOpacity": 0.93,
+      "panelBackgroundOpacity": 1,
       "translucentWidgets": false,
       "panelsAttachedToBar": true,
-      "settingsPanelMode": "attached",
-      "settingsPanelSideBarCardStyle": false
+      "settingsPanelMode": "centered",
+      "settingsPanelSideBarCardStyle": true
     },
     "location": {
       "name": "Fazenda Rio Grande",
@@ -238,7 +238,7 @@
       ]
     },
     "wallpaper": {
-      "enabled": true,
+      "enabled": false,
       "overviewEnabled": false,
       "directory": "/storage/Media",
       "monitorDirectories": [],
