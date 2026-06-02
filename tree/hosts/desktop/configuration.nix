@@ -10,6 +10,7 @@ in {
     system = dubois.enableAll [
       "shell-extension"
       "games"
+      "hermes-agent"
     ];
   };
 

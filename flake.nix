@@ -22,6 +22,7 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs = inputs@{ flake-parts, ... }:

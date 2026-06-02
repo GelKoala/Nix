@@ -7,6 +7,9 @@ let aliases = {
     "configuration.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/configuration.nix";
     "home.nix" = "sudo nvim tree/hosts/${SystemConfig.host}/home.nix";
     "sleep" = "shutdown 120";
+    "hermes.default" = "hermes chat -m openrouter/owl-alpha";
+    "hermes.pro" = "hermes chat -m deepseek/deepseek-v4-pro";
+    "hermes.flash" = "hermes chat -m deepseek/deepseek-v4-flash";
   };
 in {
   options.modules.system.shell-extension.enable =
