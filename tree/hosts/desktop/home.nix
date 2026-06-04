@@ -2,7 +2,7 @@
 let dubois = import ../../modules/home/_helpers.nix { inherit lib; };
 in
 {
-  imports = [ self.modules.home self.modules.shell ];
+  imports = [ self.modules.home ];
   programs.home-manager.enable = true;
   home = {
     username = UserConfig.username;
@@ -22,8 +22,6 @@ in
       "container"
       "niri"
       "noctalia"
-    ];
-    shell = dubois.enableAll [
       "direnv"
     ];
   };

@@ -87,6 +87,7 @@ in
             "delegation"     # subagentes isolados (Flash gera, Pro audita)
             "vision"         # vision_analyze para screenshots de código/erro
             "todo"           # planejamento de tarefas multi-passo
+            "browse"
           ];
         };
 

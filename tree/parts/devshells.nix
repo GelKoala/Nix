@@ -2,7 +2,7 @@
 
   perSystem = { pkgs, ... }: {
     devShells = {
-      python = import ../modules/shell/_python.nix { inherit pkgs; }; 
+      python = import ../modules/home/dev/_python.nix { inherit pkgs; }; 
     };
   };
 }

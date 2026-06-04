@@ -11,6 +11,7 @@ in {
       "shell-extension"
       "games"
       "hermes-agent"
+      "opencode"
     ];
   };
 
