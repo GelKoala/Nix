@@ -34,5 +34,31 @@ in
     "Mod+KP_Left".action = spawn (lib.getExe pkgs.playerctl) "previous";
     "Mod+KP_Right".action = spawn (lib.getExe pkgs.playerctl) "next";
     "Mod+Space".action.spawn = noctalia "launcher toggle";
+
+    # Media keys
+    "XF86AudioLowerVolume" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "audio" "decrement" "3";
+    };
+    "XF86AudioMicMute" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "audio" "micmute";
+    };
+    "XF86AudioMute" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "audio" "mute";
+    };
+    "XF86AudioRaiseVolume" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "audio" "increment" "3";
+    };
+    "XF86MonBrightnessDown" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "brightness" "decrement" "5";
+    };
+    "XF86MonBrightnessUp" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "brightness" "increment" "5";
+    };
   };
 }

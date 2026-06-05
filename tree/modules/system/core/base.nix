@@ -10,6 +10,7 @@
     kdePackages.partitionmanager
     geeqie
     cachix
+    wev
   ];
 
   nix.settings = {
