@@ -2,7 +2,7 @@
 {
   prefer-no-csd = true;
   layer-rules = [ {
-    matches = [ { namespace = "^noctalia-overview"; } ];
+    matches = [ { namespace = "^noctalia-backdrop"; } ];
     place-within-backdrop = true;
   } ];
   window-rules = [ {

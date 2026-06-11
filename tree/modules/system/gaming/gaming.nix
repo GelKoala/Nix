@@ -30,6 +30,7 @@ in
       gamescope
       vulkan-tools
       mesa-demos
+      hydralauncher
     ];
   };
 }

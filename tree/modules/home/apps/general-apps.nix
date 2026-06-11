@@ -8,6 +8,7 @@ in
     home.packages = with pkgs; [
       hello
       unstable.spotify
+      unstable.pear-desktop
       keepassxc
       unstable.claude-code
       vesktop
@@ -17,6 +18,7 @@ in
       pnpm
       yarn
       prismlauncher
+      osu-lazer
     ];
   };
 }

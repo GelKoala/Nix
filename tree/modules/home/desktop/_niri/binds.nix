@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let noctalia = cmd: [
-  "noctalia-shell" "ipc" "call"
+  "noctalia" "msg"
 ] ++ (pkgs.lib.splitString " " cmd);
 in
 {
@@ -33,32 +33,32 @@ in
     "Mod+KP_Begin".action = spawn (lib.getExe pkgs.playerctl) "play-pause";
     "Mod+KP_Left".action = spawn (lib.getExe pkgs.playerctl) "previous";
     "Mod+KP_Right".action = spawn (lib.getExe pkgs.playerctl) "next";
-    "Mod+Space".action.spawn = noctalia "launcher toggle";
+    "Mod+Space".action.spawn = noctalia "panel-toggle launcher";
 
     # Media keys
-    "XF86AudioLowerVolume" = {
+    "Mod5+Down" = {
       allow-when-locked = true;
       action = spawn "dms" "ipc" "call" "audio" "decrement" "3";
     };
-    "XF86AudioMicMute" = {
-      allow-when-locked = true;
-      action = spawn "dms" "ipc" "call" "audio" "micmute";
-    };
-    "XF86AudioMute" = {
-      allow-when-locked = true;
-      action = spawn "dms" "ipc" "call" "audio" "mute";
-    };
-    "XF86AudioRaiseVolume" = {
+    "Mod5+Up" = {
       allow-when-locked = true;
       action = spawn "dms" "ipc" "call" "audio" "increment" "3";
     };
-    "XF86MonBrightnessDown" = {
+    "Alt+M" = {
       allow-when-locked = true;
-      action = spawn "dms" "ipc" "call" "brightness" "decrement" "5";
+      action = spawn "dms" "ipc" "call" "audio" "micmute";
     };
-    "XF86MonBrightnessUp" = {
+    "Mod5+M" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "audio" "mute";
+    };
+    "Mod5+KP_Add" = {
       allow-when-locked = true;
       action = spawn "dms" "ipc" "call" "brightness" "increment" "5";
+    };
+    "Mod5+KP_Subtract" = {
+      allow-when-locked = true;
+      action = spawn "dms" "ipc" "call" "brightness" "decrement" "5";
     };
   };
 }
