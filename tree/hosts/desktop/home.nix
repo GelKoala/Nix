@@ -23,6 +23,7 @@ in
       "niri"
       "noctalia"
       "direnv"
+      "entertainment"
     ];
   };
 }
