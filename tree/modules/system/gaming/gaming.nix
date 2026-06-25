@@ -31,6 +31,9 @@ in
       vulkan-tools
       mesa-demos
       hydralauncher
+      steamtinkerlaunch
+      prismlauncher
+      osu-lazer
     ];
   };
 }

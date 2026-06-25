@@ -14,6 +14,7 @@ in
       siyuan
       speedcrunch
       xournalpp
+      unstable.anki
     ];
   };
 }

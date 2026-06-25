@@ -1,10 +1,16 @@
-{ config, lib, pkgs, ... }:
-let noctalia = cmd: [
-  "noctalia" "msg"
-] ++ (pkgs.lib.splitString " " cmd);
+{ config, lib, pkgs, UserConfig, ... }:
+let
+  noctalia = cmd: [
+    "noctalia" "msg"
+  ] ++ (pkgs.lib.splitString " " cmd);
+
+  workspaceBinds = builtins.listToAttrs (builtins.concatMap (n: [
+    { name = "Mod+${toString n}";       value.action.focus-workspace = n; }
+    { name = "Mod+Shift+${toString n}"; value.action.move-column-to-workspace = n; }
+  ]) (lib.range 1 9));
 in
 {
-  binds = with config.lib.niri.actions; {
+  binds = workspaceBinds // (with config.lib.niri.actions; {
     # Windows/Columns
     "Mod+Q" = {
       repeat = false;
@@ -16,9 +22,12 @@ in
     "Mod+Up".action = focus-window-up;
     "Mod+Equal".action = set-column-width "+10%";
     "Mod+Minus".action = set-column-width "-10%";
-    "Mod+Return".action = maximize-column;
+    "Mod+Shift+F".action = maximize-column;
+    "Mod+Control+F".action = fullscreen-window;
     "Mod+Control+Up".action = switch-preset-column-width;
     "Mod+Control+Down".action = switch-preset-window-height;
+    "Mod+Control+Left".action = consume-or-expel-window-left;
+    "Mod+Control+Right".action = consume-or-expel-window-right;
     "Mod+Shift+T".action = toggle-window-floating;
     "Mod+Shift+R".action = switch-focus-between-floating-and-tiling;
     "Mod+Shift+Minus".action = set-window-height "-10%";
@@ -38,10 +47,12 @@ in
 
     # Spawn
     "Mod+D".action = spawn (lib.getExe pkgs.vesktop);
-    "Mod+B".action = spawn (lib.getExe pkgs.vivaldi);
-    "Mod+S".action = spawn (lib.getExe pkgs.spotify);
+    "Mod+B".action = spawn (lib.getExe pkgs.${UserConfig.apps.browser.package});
+    "Mod+M".action = spawn (lib.getExe pkgs.${UserConfig.apps.musicPlayer.package});
     "Mod+O".action = spawn (lib.getExe pkgs.obsidian);
-    "Mod+T".action = spawn (lib.getExe pkgs.kitty);
+    "Mod+T".action = spawn (lib.getExe pkgs.${UserConfig.apps.terminal.package});
+    "Mod+E".action = spawn (lib.getExe pkgs.${UserConfig.apps.fileManager.package});
+    "Mod+I".action = spawn (lib.getExe pkgs.${UserConfig.apps.imageViewer.package});
 
     #Noctalia
     "Mod5+KP_4".action.spawn = noctalia "media previous";
@@ -58,8 +69,8 @@ in
     "Mod5+Shift+KP_Add".action.spawn = noctalia "mic-volume-up 10%";
     "Mod5+Shift+KP_Subtract".action.spawn = noctalia "mic-volume-down 10%";
     "Mod5+M".action.spawn = noctalia "mic-mute";
-    "Mod5+KP_Add".action.spawn = noctalia "brightness-down 10";
-    "Mod5+KP_Subtract".action.spawn = noctalia "brightness-up 10";
+    "Mod5+KP_Subtract".action.spawn = noctalia "brightness-down 10";
+    "Mod5+KP_Add".action.spawn = noctalia "brightness-up 10";
     "Print".action.spawn = noctalia "screenshot-region";
-  };
+  });
 }

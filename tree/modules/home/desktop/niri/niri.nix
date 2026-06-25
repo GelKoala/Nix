@@ -1,7 +1,7 @@
-{ config, lib, pkgs, self, ... }:
+{ config, lib, pkgs, self, UserConfig, ... }:
 let
   cfg = config.modules.home.niri;
-  args = { inherit config lib pkgs self; };
+  args = { inherit config lib pkgs self UserConfig; };
   settings = lib.foldl' lib.recursiveUpdate { } (map (f: import f args) [
     ./_niri/inputs.nix
     ./_niri/layout.nix

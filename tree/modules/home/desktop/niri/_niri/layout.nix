@@ -1,9 +1,9 @@
 { ... }:
 {
   layout = {
-    border.width = 1;
-    gaps = 1;
-    focus-ring.width = 1;
+    border.width = 0;
+    gaps = 0;
+    focus-ring.width = 0;
     default-column-width = { proportion = 0.5; };
     preset-column-widths = [
       { proportion = 0.33; }

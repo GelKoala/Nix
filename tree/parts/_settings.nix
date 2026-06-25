@@ -30,6 +30,14 @@
           package = "qimgv";
           desktop = "qimgv.desktop";
         };
+        musicPlayer = {
+          package = "pear-desktop";
+          desktop = "pear-desktop.desktop";
+        };
+        terminal = {
+          package = "kitty";
+          desktop = "kitty.desktop";
+        };
       };
     };
 }

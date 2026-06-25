@@ -9,9 +9,7 @@ in
       hello
       keepassxc
       nodejs_24
-      osu-lazer
       pnpm
-      prismlauncher
       protonmail-bridge
       qimgv
       unstable.claude-code
@@ -19,6 +17,10 @@ in
       unstable.spotify
       vesktop
       yarn
+      thunar
+      zathura
+      quicksand
+      jamesdsp
     ];
   };
 }
