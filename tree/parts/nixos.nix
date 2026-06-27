@@ -4,9 +4,9 @@ let
 in
 {
   flake.nixosConfigurations.${SystemConfig.host} = inputs.nixpkgs.lib.nixosSystem {
-    system = SystemConfig.system;
     specialArgs = { inherit self SystemConfig UserConfig inputs; };
     modules = [
+      { nixpkgs.hostPlatform = SystemConfig.system; }
       (hostDir + "/configuration.nix")
       inputs.home-manager.nixosModules.home-manager
       {
@@ -15,7 +15,6 @@ in
           useUserPackages = true;
           backupFileExtension = "backup";
           extraSpecialArgs = { inherit self SystemConfig UserConfig inputs; };
-          sharedModules = [ inputs.niri-flake.homeModules.niri ];
           users.${UserConfig.username} = import (hostDir + "/home.nix");
         };
       }

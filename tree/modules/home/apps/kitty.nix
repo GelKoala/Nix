@@ -15,7 +15,7 @@ in
       settings = {
         confirm_os_window_close = 0;
         window_padding_width = 8;
-        background_opacity = "0.70";
+        background_opacity = "0.90";
       };
     };
   };

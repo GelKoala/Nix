@@ -1,4 +1,4 @@
-{ input, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let cfg = config.modules.home.generalApps;
 in
 {

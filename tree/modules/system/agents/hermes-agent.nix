@@ -14,7 +14,7 @@ in
     # ou .full (~+700MB, tudo) e rode `nixos-rebuild switch`.
     services.hermes-agent = {
       enable = true;
-      package = inputs.hermes-agent.packages.${pkgs.system}.default;
+      package = inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.default;
       addToSystemPackages = true;
 
       # Container persistente compartilhado com o usuário host.

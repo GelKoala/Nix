@@ -1,9 +1,10 @@
-{ ... }:{
-
+{ ... }: {
   perSystem = { pkgs, ... }: {
-    devShells = {
-      python = import ../modules/home/dev/_python.nix { inherit pkgs; }; 
+    devShells.python = pkgs.mkShell {
+      packages = with pkgs; [
+        python312
+        pyright
+      ];
     };
   };
 }
-

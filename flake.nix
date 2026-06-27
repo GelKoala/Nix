@@ -18,10 +18,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     hermes-agent.url = "github:NousResearch/hermes-agent";
     noctalia = {
       url = "github:noctalia-dev/noctalia";
