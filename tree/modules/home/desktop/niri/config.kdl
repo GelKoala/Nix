@@ -1,0 +1,198 @@
+input {
+    keyboard {
+        xkb {
+            layout "br"
+        }
+        numlock
+        repeat-delay 600
+        repeat-rate 25
+        track-layout "global"
+    }
+    mouse {
+        accel-speed 0.0
+        accel-profile "flat"
+    }
+    tablet {
+        map-to-output "DP-1"
+    }
+}
+
+output "DP-1" {
+    mode "2560x1080@74.991"
+}
+
+
+layout {
+    gaps 0
+    default-column-width { proportion 0.5; }
+    preset-column-widths {
+        proportion 0.33
+        proportion 0.5
+        proportion 0.66
+    }
+    preset-window-heights {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    focus-ring {
+        width 0
+        active-color "#ffffff"
+        inactive-color "#919191"
+        urgent-color "#ffb4ab"
+    }
+    border {
+        width 0
+        active-color "#ffffff"
+        inactive-color "#919191"
+        urgent-color "#ffb4ab"
+    }
+    shadow {
+        color "#00000070"
+    }
+    tab-indicator {
+        active-color "#ffffff"
+        inactive-color "#919191"
+        urgent-color "#ffb4ab"
+    }
+    insert-hint {
+        color "#ffffff80"
+    }
+}
+
+
+prefer-no-csd
+
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+
+window-rule {
+    geometry-corner-radius 2
+    clip-to-geometry true
+    draw-border-with-background false
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.97
+    background-effect {
+        blur true
+    }
+}
+window-rule {
+    match app-id="^kitty$"
+    open-floating true
+    default-floating-position x=16 y=16 relative-to="top-right"
+    default-column-width { fixed 720; }
+    default-window-height { fixed 480; }
+    opacity 0.9
+    background-effect {
+        xray true
+    }
+}
+
+window-rule {
+    match app-id="^dev\\.zed\\.Zed$"
+    opacity 0.97
+}
+
+window-rule {
+    match app-id="^vesktop$"
+    open-fullscreen false
+    default-column-width { proportion 0.5; }
+}
+
+
+binds {
+    Mod+1 { focus-workspace 1; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Windows/Columns
+    Mod+Q repeat=false { close-window; }
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down { focus-window-down; }
+    Mod+Up { focus-window-up; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Shift+F { maximize-column; }
+    Mod+Control+F { fullscreen-window; }
+    Mod+Control+Up { switch-preset-column-width; }
+    Mod+Control+Down { switch-preset-window-height; }
+    Mod+Control+Left { consume-or-expel-window-left; }
+    Mod+Control+Right { consume-or-expel-window-right; }
+    Mod+Shift+T { toggle-window-floating; }
+    Mod+Shift+R { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Left { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+
+    // Workspace
+    Mod+Page_Up { focus-workspace-up; }
+    Mod+Page_Down { focus-workspace-down; }
+    Mod+Shift+Down { move-column-to-workspace-down; }
+    Mod+Shift+Up { move-column-to-workspace-up; }
+    Mod+Tab { toggle-overview; }
+
+    // Spawn
+    Mod+D { spawn "vesktop"; }
+    Mod+B { spawn "vivaldi"; }
+    Mod+M { spawn "pear-desktop"; }
+    Mod+O { spawn "obsidian"; }
+    Mod+T { spawn "kitty"; }
+    Mod+E { spawn "thunar"; }
+    Mod+I { spawn "qimgv"; }
+
+    // Noctalia
+    Mod5+KP_4 { spawn "noctalia" "msg" "media" "previous"; }
+    Mod5+KP_5 { spawn "noctalia" "msg" "media" "toggle"; }
+    Mod5+KP_6 { spawn "noctalia" "msg" "media" "next"; }
+    Mod5+KP_Begin { spawn "noctalia" "msg" "media" "toggle"; }
+    Mod5+KP_Left { spawn "noctalia" "msg" "media" "previous"; }
+    Mod5+KP_Right { spawn "noctalia" "msg" "media" "next"; }
+    Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod5+KP_8 { spawn "noctalia" "msg" "volume-up" "10"; }
+    Mod5+KP_2 { spawn "noctalia" "msg" "volume-down" "10"; }
+    Mod5+KP_Up { spawn "noctalia" "msg" "volume-up" "10"; }
+    Mod5+KP_Down { spawn "noctalia" "msg" "volume-down" "10"; }
+    Mod5+Shift+KP_Add { spawn "noctalia" "msg" "mic-volume-up" "10%"; }
+    Mod5+Shift+KP_Subtract { spawn "noctalia" "msg" "mic-volume-down" "10%"; }
+    Mod5+M { spawn "noctalia" "msg" "mic-mute"; }
+    Mod5+KP_Subtract { spawn "noctalia" "msg" "brightness-down" "10"; }
+    Mod5+KP_Add { spawn "noctalia" "msg" "brightness-up" "10"; }
+    Print { spawn "noctalia" "msg" "screenshot-region"; }
+}
+
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}
+spawn-at-startup "noctalia"
+// spawn-at-startup "vesktop"
+// spawn-at-startup "swaybg" "-i" "/storage/Media/sky.jpg" "-m" "fill"
+
+blur {
+    on
+    offset 3
+    noise 0.05
+    saturation 1.0
+}

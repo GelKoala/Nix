@@ -6,4 +6,5 @@
     options = [ "defaults" "nofail" ];
   };
   services.udisks2.enable = true;
+  zramSwap.enable = true;
 }
