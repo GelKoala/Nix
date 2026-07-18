@@ -15,16 +15,16 @@
 
       apps = {
         browser = {
-          package = "zen-browser";
-          desktop = "zen.desktop";
+          package = "vivaldi";
+          desktop = "vivaldi.desktop";
         };
         fileManager = {
           package = "dolphin";
           desktop = "dolphin.desktop";
         };
         pdf = {
-          package = "zen-browser";
-          desktop = "zen.desktop";
+          package = "vivaldi";
+          desktop = "vivaldi.desktop";
         };
         imageViewer = {
           package = "qimgv";

@@ -8,7 +8,6 @@ in
     lib.mkEnableOption "system gaming-stuff";
 
   config = lib.mkIf cfg.enable {
-    services.xserver.videoDrivers = [ SystemConfig.gpu ];
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
