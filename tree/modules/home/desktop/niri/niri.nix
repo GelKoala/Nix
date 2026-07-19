@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, UserConfig, ... }:
 let
   cfg = config.modules.home.niri;
 in
@@ -12,6 +12,11 @@ in
 
     home.packages = with pkgs; [
       xwayland-satellite
+      (writeShellScriptBin "niri-browser" "exec ${lib.getExe pkgs.${UserConfig.apps.browser.package}} \"$@\"")
+      (writeShellScriptBin "niri-terminal" "exec ${lib.getExe pkgs.${UserConfig.apps.terminal.package}} \"$@\"")
+      (writeShellScriptBin "niri-filemanager" "exec ${lib.getExe pkgs.${UserConfig.apps.fileManager.package}} \"$@\"")
+      (writeShellScriptBin "niri-musicplayer" "exec ${lib.getExe pkgs.${UserConfig.apps.musicPlayer.package}} \"$@\"")
+      (writeShellScriptBin "niri-imageviewer" "exec ${lib.getExe pkgs.${UserConfig.apps.imageViewer.package}} \"$@\"")
     ];
   };
 }

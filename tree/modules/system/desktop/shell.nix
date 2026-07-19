@@ -29,6 +29,7 @@ in {
       environment.systemPackages = with pkgs; [
         ncdu
         btop
+        nvtopPackages.amd
       ];
     })
   ];

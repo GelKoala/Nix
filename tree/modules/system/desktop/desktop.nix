@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.printing.enable = true;
   programs.dconf.enable = true;
@@ -11,4 +11,10 @@
   # Thunar integration (gvfs, xfconf, etc.)
   programs.thunar.enable = true;
   programs.xfconf.enable = true;
+
+  # Font
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    nerd-fonts.jetbrains-mono
+  ];
 }

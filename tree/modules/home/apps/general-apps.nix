@@ -25,6 +25,7 @@ in
       _7zip-zstd
       unar
       innoextract
+      foot
     ];
   };
 }

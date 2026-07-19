@@ -1,37 +1,33 @@
+config_version = 2
+
 [backdrop]
 blur_intensity = 0.39999999105930328
 
 [bar.main]
-auto_hide = true
+auto_hide = false
+background_opacity = 0.97999997809529305
 border = "on_primary"
-center = [ "clock" ]
-end = [ "group:g2" ]
-font_weight = 400
-margin_edge = 2
-margin_ends = 150
-padding = 16
+capsule_group = []
+capsule_thickness = 0.64999998919665813
+end = [ "tray", "power_profile", "output_volume", "wallpaper", "notifications" ]
+font_weight = 700
+margin_edge = 0
+margin_ends = 0
+padding = 14
 position = "top"
-radius = 15
-radius_bottom_right = 15
-reserve_space = false
-scale = 1.2000000104308128
-start = [ "group:g1" ]
-thickness = 35
+radius = 0
+radius_bottom_right = 10
+reserve_space = true
+shadow = false
+start = [ "workspaces" ]
+thickness = 23
+widget_spacing = 9
 
-    [[bar.main.capsule_group]]
-    border = "surface"
-    fill = "outline"
-    id = "g1"
-    members = [ "workspaces", "audio_visualizer" ]
-    opacity = 1.0
-    padding = 9.0
-
-    [[bar.main.capsule_group]]
-    fill = "outline"
-    id = "g2"
-    members = [ "cpu", "power_profile", "output_volume", "wallpaper" ]
-    opacity = 1.0
-    padding = 6.0
+[dock]
+active_monitor_only = true
+auto_hide = true
+icon_size = 26
+magnification = false
 
 [[control_center.shortcuts]]
 type = "notification"
@@ -63,7 +59,7 @@ pre_action_fade_seconds = 0
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@DP-1" ]
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lockscreen-login-box@winit" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -71,28 +67,51 @@ widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@DP-1" ]
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 70.0
+    box_width = 400.0
     cx = 1280.0
     cy = 957.0
     output = "DP-1"
     rotation = 0.0
     type = "login_box"
 
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 961.0
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
     [lockscreen_widgets.widget."lockscreen-login-box@winit"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 70.0
+    box_width = 400.0
     cx = 640.0
     cy = 677.0
     output = "winit"
     rotation = 0.0
     type = "login_box"
 
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        show_login_button = true
+
 [shell]
 corner_radius_scale = 0.90000001341104507
-font_family = "Noto Music"
+font_family = "Noto Sans"
 screen_time_enabled = true
-settings_show_advanced = false
+settings_show_advanced = true
 
     [shell.panel]
     control_center_placement = "floating"
@@ -152,13 +171,19 @@ enabled = true
     enabled = true
 
     [wallpaper.default]
-    path = "/storage/Media/road_rain_lamp_980734_2560x1080.jpg"
+    path = "/storage/Media/wallpaperflare.com_wallpaper.jpg"
 
     [wallpaper.last]
-    path = "/storage/Media/road_rain_lamp_980734_2560x1080.jpg"
+    path = "/storage/Media/wallpaperflare.com_wallpaper.jpg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/storage/Media/road_asphalt_rain_141217_2560x1080.jpg"
+
+    [wallpaper.monitors.DP-2]
+    path = "/storage/Media/wallpaperflare.com_wallpaper.jpg"
 
     [wallpaper.monitors.winit]
-    path = "/storage/Media/road_rain_lamp_980734_2560x1080.jpg"
+    path = "/storage/Media/wallhaven-yqekql.jpg"
 
 [widget.audio_visualizer]
 anchor = true
@@ -186,7 +211,9 @@ capsule_foreground = "outline"
 capsule_padding = 4.0
 capsule_radius = 19
 color = "on_surface"
-scale = 1.25
+font_family = "JetBrains Mono Light"
+format = "{:%H:%M %a, %d %b}"
+scale = 1.0
 
 [widget.control-center]
 glyph = "brand-walmart"
@@ -201,9 +228,20 @@ show_label = false
 
 [widget.media]
 art_size = 18.0
+hide_artist = true
+interactive = false
 max_length = 260
 min_length = 155
-title_scroll = "on_hover"
+title_scroll = "none"
+
+[widget.network]
+color = "primary"
+font_weight = 400
+scale = 0.90000000000000013
+show_label = false
+
+[widget.notifications]
+scale = 0.90000000000000013
 
 [widget.output_volume]
 capsule = false
@@ -211,12 +249,12 @@ capsule_border = "outline"
 capsule_fill = "outline"
 capsule_foreground = "outline"
 font_weight = 400
-scale = 1.0
+scale = 0.90000000000000013
 scroll_step = 4
 show_label = false
 
 [widget.power_profile]
-scale = 1.0
+scale = 0.90000000000000013
 
 [widget.session]
 color = "on_surface_variant"
@@ -234,18 +272,28 @@ type = "spacer"
 length = 10
 type = "spacer"
 
+[widget.tray]
+drawer = true
+drawer_item_size = 20.0
+match_adjacent_spacing = true
+
+[widget.wallpaper]
+scale = 0.90000000000000013
+
 [widget.weather]
 max_length = 157
 scale = 0.90000000000000002
 show_condition = false
 
 [widget.workspaces]
+active_pill_size = 1.6000000000000001
 capsule_fill = "outline"
 capsule_opacity = 0.59999999999999998
 capsule_padding = 14.0
-capsule_radius = 10
-display = "none"
+capsule_radius = 3
+display = "id"
 empty_color = "shadow"
-focused_color = "on_surface"
+focused_color = "primary"
+font_family = "JetBrains Mono ExtraBold"
 occupied_color = "shadow"
-scale = 0.90000000000000013
+scale = 1.0

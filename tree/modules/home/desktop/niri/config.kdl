@@ -21,12 +21,14 @@ input {
         accel-profile "flat"
     }
     tablet {
-        map-to-output "DP-1"
+        map-to-output "DP-2"
     }
 }
 
-output "DP-1" {
+output "DP-2" {
     mode "2560x1080@74.991"
+    scale 1.0
+    variable-refresh-rate
 }
 
 
@@ -90,11 +92,17 @@ window-rule {
     }
 }
 window-rule {
+    match app-id="^dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 240; }
+    default-window-height { fixed 720; }
+}
+window-rule {
     match app-id="^kitty$"
     open-floating true
     default-floating-position x=16 y=16 relative-to="top-right"
-    default-column-width { fixed 900; }
-    default-window-height { fixed 480; }
+    default-column-width { fixed 823; }
+    default-window-height { fixed 550; }
     geometry-corner-radius 5
     opacity 0.9
     background-effect {
@@ -164,13 +172,14 @@ binds {
     Mod+Tab { toggle-overview; }
 
     // Spawn
+    Mod+Z { spawn "zeditor"; }
     Mod+D { spawn "vesktop"; }
-    Mod+B { spawn "vivaldi"; }
-    Mod+M { spawn "pear-desktop"; }
+    Mod+B { spawn "niri-browser"; }
+    Mod+M { spawn "niri-musicplayer"; }
     Mod+O { spawn "obsidian"; }
-    Mod+T { spawn "kitty"; }
-    Mod+E { spawn "thunar"; }
-    Mod+I { spawn "qimgv"; }
+    Mod+T { spawn "niri-terminal"; }
+    Mod+E { spawn "niri-filemanager"; }
+    Mod+I { spawn "niri-imageviewer"; }
 
     // Noctalia
     Mod5+KP_4 { spawn "noctalia" "msg" "media" "previous"; }
@@ -192,6 +201,12 @@ binds {
     Print { spawn "noctalia" "msg" "screenshot-region"; }
 }
 
+animations {
+    slowdown 1
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.00001
+    }
+}
 
 blur {
     on
