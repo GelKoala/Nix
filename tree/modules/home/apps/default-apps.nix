@@ -30,6 +30,20 @@ in
           "inode/directory" = apps.fileManager.desktop;
         };
       };
+      configFile."xfce4/helpers.rc".text = ''
+        TerminalEmulator=${apps.terminal.package}
+      '';
+      dataFile."xfce4/helpers/${apps.terminal.package}.desktop".text = ''
+        [Desktop Entry]
+        Version=1.0
+        Type=X-XFCE-Helper
+        Name=${apps.terminal.package}
+        Icon=${apps.terminal.package}
+        X-XFCE-Category=TerminalEmulator
+        X-XFCE-Binaries=${apps.terminal.package};
+        X-XFCE-Commands=${apps.terminal.package};
+        X-XFCE-CommandsWithParameter=${apps.terminal.package} -e %s;
+      '';
     };
   };
 }

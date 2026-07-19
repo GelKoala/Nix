@@ -15,6 +15,7 @@ in
     xdg.configFile."vivaldi-flags.conf".text = ''
       --ozone-platform-hint=auto
       --enable-features=UseOzonePlatform,WaylandWindowDecorations,VaapiVideoDecodeLinuxGL
+      --password-store=kwallet6
     '';
   };
 }

@@ -16,13 +16,15 @@ in
       unstable.pear-desktop
       unstable.spotify
       vesktop
-      p7zip
       unzip
       yarn
       thunar
       zathura
       quicksand
       jamesdsp
+      _7zip-zstd
+      unar
+      innoextract
     ];
   };
 }

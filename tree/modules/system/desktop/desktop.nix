@@ -7,4 +7,8 @@
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  # Thunar integration (gvfs, xfconf, etc.)
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
 }

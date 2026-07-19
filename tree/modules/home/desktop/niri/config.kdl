@@ -31,7 +31,7 @@ output "DP-1" {
 
 
 layout {
-    gaps 0.4
+    gaps 0
     default-column-width { proportion 0.5; }
     preset-column-widths {
         proportion 0.33
@@ -77,7 +77,7 @@ layer-rule {
 }
 
 window-rule {
-    geometry-corner-radius 2
+    geometry-corner-radius 1
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -95,6 +95,7 @@ window-rule {
     default-floating-position x=16 y=16 relative-to="top-right"
     default-column-width { fixed 900; }
     default-window-height { fixed 480; }
+    geometry-corner-radius 5
     opacity 0.9
     background-effect {
         xray true
@@ -103,6 +104,7 @@ window-rule {
 
 window-rule {
     match app-id="^dev\\.zed\\.Zed$"
+    geometry-corner-radius 0
     opacity 0.97
 }
 
@@ -189,8 +191,6 @@ binds {
     Mod5+KP_Add { spawn "noctalia" "msg" "brightness-up" "10"; }
     Print { spawn "noctalia" "msg" "screenshot-region"; }
 }
-
-
 
 
 blur {

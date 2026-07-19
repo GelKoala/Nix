@@ -34,6 +34,7 @@ in
       prismlauncher
       osu-lazer
       protontricks
+      wine
     ];
   };
 }
