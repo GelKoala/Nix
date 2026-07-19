@@ -14,7 +14,25 @@ in
     # ou .full (~+700MB, tudo) e rode `nixos-rebuild switch`.
     services.hermes-agent = {
       enable = true;
-      package = inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = (inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.default.override (old: {
+        callPackage = fn: args:
+          let
+            orig = (old.callPackage or pkgs.callPackage) fn args;
+          in
+          if lib.hasSuffix "tui.nix" (toString fn) then
+            (old.callPackage or pkgs.callPackage) fn (args // {
+              hermesNpmLib = args.hermesNpmLib // {
+                mkNpmPassthru = passthruArgs:
+                  args.hermesNpmLib.mkNpmPassthru (passthruArgs // {
+                    dirs = if builtins.elem "ui-tui" passthruArgs.dirs
+                           then passthruArgs.dirs ++ [ "apps/shared" ]
+                           else passthruArgs.dirs;
+                  });
+              };
+            })
+          else
+            orig;
+      }));
       addToSystemPackages = true;
 
       # Container persistente compartilhado com o usuário host.

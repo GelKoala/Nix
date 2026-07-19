@@ -15,7 +15,7 @@ in
       enable = true;
       systemd.enable = false;
       package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      settings = builtins.fromTOML (builtins.readFile ./_niri/settings.toml);
+      settings = builtins.fromTOML (builtins.readFile ./settings.toml);
     };
   };
 }

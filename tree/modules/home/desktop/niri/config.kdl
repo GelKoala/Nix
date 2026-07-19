@@ -1,3 +1,11 @@
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}
+spawn-at-startup "noctalia"
+// spawn-at-startup "vesktop"
+// spawn-at-startup "swaybg" "-i" "/storage/Media/sky.jpg" "-m" "fill"
+
 input {
     keyboard {
         xkb {
@@ -23,7 +31,7 @@ output "DP-1" {
 
 
 layout {
-    gaps 0
+    gaps 0.4
     default-column-width { proportion 0.5; }
     preset-column-widths {
         proportion 0.33
@@ -85,7 +93,7 @@ window-rule {
     match app-id="^kitty$"
     open-floating true
     default-floating-position x=16 y=16 relative-to="top-right"
-    default-column-width { fixed 720; }
+    default-column-width { fixed 900; }
     default-window-height { fixed 480; }
     opacity 0.9
     background-effect {
@@ -183,12 +191,7 @@ binds {
 }
 
 
-xwayland-satellite {
-    path "xwayland-satellite"
-}
-spawn-at-startup "noctalia"
-// spawn-at-startup "vesktop"
-// spawn-at-startup "swaybg" "-i" "/storage/Media/sky.jpg" "-m" "fill"
+
 
 blur {
     on

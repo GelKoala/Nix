@@ -33,6 +33,7 @@ in
       steamtinkerlaunch
       prismlauncher
       osu-lazer
+      protontricks
     ];
   };
 }

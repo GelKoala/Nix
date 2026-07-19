@@ -16,6 +16,8 @@ in
       unstable.pear-desktop
       unstable.spotify
       vesktop
+      p7zip
+      unzip
       yarn
       thunar
       zathura
