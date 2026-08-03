@@ -28,7 +28,7 @@ input {
 output "DP-2" {
     mode "2560x1080@74.991"
     scale 1.0
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
 }
 
 
@@ -109,13 +109,16 @@ window-rule {
         xray true
     }
 }
+window-rule {
+    match app-id="^vivaldi-stable$"
+    open-maximized true
+}
 
 window-rule {
     match app-id="^dev\\.zed\\.Zed$"
     geometry-corner-radius 0
     opacity 0.97
 }
-
 window-rule {
     match app-id="^vesktop$"
     open-fullscreen false
@@ -213,4 +216,8 @@ blur {
     offset 3
     noise 0.05
     saturation 1.0
+}
+
+debug {
+    disable-cursor-plane
 }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, SystemConfig, UserConfig, ... }:
+{ config, lib, pkgs, SystemConfig, UserConfig, inputs, ... }:
 
 let
   cfg = config.modules.system.games;
@@ -11,6 +11,10 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = [
+        inputs.nix-gaming.packages.${pkgs.system}.low-latency-layer
+        inputs.nix-gaming.packages.${pkgs.system}.dxvk-nvapi-vkreflex-layer
+      ];
     };
     programs = {
       steam = {
@@ -35,6 +39,8 @@ in
       osu-lazer
       protontricks
       wine
+      mission-center
+      htop
     ];
   };
 }

@@ -11,6 +11,7 @@
     geeqie
     cachix
     wev
+    discord
   ];
 
   nixpkgs.overlays = [

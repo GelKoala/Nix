@@ -16,6 +16,11 @@
     ];
   };
 
+  # Force RADV as the default Vulkan driver (better gaming performance and Proton/ACO compatibility)
+  environment.variables = {
+    AMD_VULKAN_ICD = "RADV";
+  };
+
   # System packages for GPU monitoring, overclocking and control
   environment.systemPackages = with pkgs; [
     amdgpu_top   # CLI tool to monitor AMD GPU status (usage, VRAM, temps)

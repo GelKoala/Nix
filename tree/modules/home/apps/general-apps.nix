@@ -12,7 +12,7 @@ in
       pnpm
       protonmail-bridge
       qimgv
-      unstable.antigravity-cli
+      unstable.codex
       unstable.pear-desktop
       unstable.spotify
       vesktop
