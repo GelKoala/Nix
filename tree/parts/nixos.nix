@@ -8,6 +8,7 @@ in
     modules = [
       { nixpkgs.hostPlatform = SystemConfig.system; }
       (hostDir + "/configuration.nix")
+      inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

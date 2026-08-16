@@ -12,6 +12,7 @@ in {
       "games"
       "hermes-agent"
       "opencode"
+      "stylix"
     ];
   };
 
