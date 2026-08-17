@@ -1,9 +1,9 @@
 # Source palette: https://github.com/metalelf0/black-metal-theme-neovim
-# Album reference: In the Nightside Eclipse, 1994
-scheme: "Black Metal Emperor"
+# Album reference: Welcome to Hell, 1981
+scheme: "Black Metal Venom"
 author: "Andrea Schiavini / metalelf0 (Base16 adaptation for Revachol)"
 base00: "000000"
-base01: "20173B"
+base01: "211816"
 base02: "222222"
 base03: "505050"
 base04: "999999"
@@ -13,8 +13,8 @@ base07: "C1C1C1"
 base08: "5F8787"
 base09: "AAAAAA"
 base0A: "888888"
-base0B: "756482"
+base0B: "F8F7F2"
 base0C: "9B99A3"
-base0D: "A8A1DE"
+base0D: "FC302E"
 base0E: "999999"
 base0F: "6E4C4C"

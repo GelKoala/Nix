@@ -4,6 +4,24 @@ let
   cfg = config.modules.system.stylix;
   colors = config.lib.stylix.colors;
   hex = color: "#${color}";
+  themes = [
+    "bathory"
+    "burzum"
+    "dark-funeral"
+    "darkthrone"
+    "emperor"
+    "gorgoroth"
+    "immortal"
+    "impaled-nazarene"
+    "khold"
+    "marduk"
+    "mayhem"
+    "nile"
+    "taake"
+    "thyrfing"
+    "venom"
+    "windir"
+  ];
 
   noctaliaPalette = {
     dark = {
@@ -58,15 +76,21 @@ let
   };
 in
 {
-  options.modules.system.stylix.enable =
-    lib.mkEnableOption "system-wide Stylix theming";
+  options.modules.system.stylix = {
+    enable = lib.mkEnableOption "system-wide Stylix theming";
+    theme = lib.mkOption {
+      type = lib.types.enum themes;
+      default = "windir";
+      description = "Black Metal palette used by Stylix.";
+    };
+  };
 
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
       autoEnable = true;
       polarity = "dark";
-      base16Scheme = ./themes/emperor.yaml;
+      base16Scheme = ./themes + "/${cfg.theme}.yaml";
 
       cursor = {
         name = "Vanilla-DMZ";
@@ -104,6 +128,8 @@ in
     };
 
     home-manager.users.${UserConfig.username} = {
+      home.file."/home/${UserConfig.username}/.gtkrc-2.0".force = lib.mkForce true;
+
       stylix.targets = {
         firefox.enable = false;
         kitty = {
@@ -117,12 +143,12 @@ in
       programs.noctalia.settings.theme = lib.mkForce {
         mode = "dark";
         source = "custom";
-        custom_palette = "Emperor";
+        custom_palette = cfg.theme;
         pure_black_dark = true;
       };
 
       xdg.configFile = {
-        "noctalia/palettes/Emperor.json".text =
+        "noctalia/palettes/${cfg.theme}.json".text =
           builtins.toJSON noctaliaPalette;
 
         "niri/stylix.kdl".text = ''

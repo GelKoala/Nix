@@ -19,8 +19,8 @@
           desktop = "vivaldi.desktop";
         };
         fileManager = {
-          package = "thunar";
-          desktop = "thunar.desktop";
+          package = "dolphin";
+          desktop = "dolphin.desktop";
         };
         pdf = {
           package = "vivaldi";

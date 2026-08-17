@@ -119,7 +119,8 @@ settings_show_advanced = true
     open_near_click_launcher = true
     open_near_click_session = true
     open_near_click_wallpaper = true
-    session_placement = "centered"
+    session_placement = "floating"
+    session_position = "center"
 
     [[shell.session.actions]]
     action = "lock"
@@ -189,19 +190,19 @@ enabled = true
 anchor = true
 bands = 128
 capsule_radius = 8
-high_color = "on_surface"
+color_1 = "on_surface"
+color_2 = "on_surface"
 mirrored = false
 scale = 1.3500000000000001
 width = 200.0
 
-[widget.bongocat]
-script = "scripts/bongocat.lua"
-type = "scripted"
-
 [widget.brightness]
 scale = 0.80000000000000004
-scroll_step = 11
 show_label = false
+
+    [widget.brightness.actions]
+    scroll_down = "brightness-down 11%"
+    scroll_up = "brightness-up 11%"
 
 [widget.clock]
 capsule = false
@@ -220,7 +221,7 @@ glyph = "brand-walmart"
 scale = 0.90000000000000002
 
 [widget.cpu]
-show_label = false
+show_value = false
 stat = "ram_used"
 
 [widget.input_volume]
@@ -250,8 +251,11 @@ capsule_fill = "outline"
 capsule_foreground = "outline"
 font_weight = 400
 scale = 0.90000000000000013
-scroll_step = 4
 show_label = false
+
+    [widget.output_volume.actions]
+    scroll_down = "volume-down 4%"
+    scroll_up = "volume-up 4%"
 
 [widget.power_profile]
 scale = 0.90000000000000013
@@ -291,7 +295,8 @@ capsule_fill = "outline"
 capsule_opacity = 0.59999999999999998
 capsule_padding = 14.0
 capsule_radius = 3
-display = "id"
+label_source = "id"
+show_labels = true
 empty_color = "shadow"
 focused_color = "primary"
 font_family = "JetBrains Mono ExtraBold"
