@@ -7,6 +7,8 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       stremio-linux-shell
+      unstable.pear-desktop
+      unstable.spotify
     ];
   };
 }

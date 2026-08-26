@@ -12,6 +12,8 @@
     cachix
     wev
     discord
+    zip
+    unzip
   ];
 
   nixpkgs.overlays = [

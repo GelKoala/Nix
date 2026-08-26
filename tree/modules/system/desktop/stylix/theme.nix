@@ -4,24 +4,11 @@ let
   cfg = config.modules.system.stylix;
   colors = config.lib.stylix.colors;
   hex = color: "#${color}";
-  themes = [
-    "bathory"
-    "burzum"
-    "dark-funeral"
-    "darkthrone"
-    "emperor"
-    "gorgoroth"
-    "immortal"
-    "impaled-nazarene"
-    "khold"
-    "marduk"
-    "mayhem"
-    "nile"
-    "taake"
-    "thyrfing"
-    "venom"
-    "windir"
-  ];
+  themesDirectory = ./themes;
+  themeFiles = lib.filterAttrs
+    (name: type: type == "regular" && lib.hasSuffix ".yaml" name)
+    (builtins.readDir themesDirectory);
+  themes = map (lib.removeSuffix ".yaml") (builtins.attrNames themeFiles);
 
   noctaliaPalette = {
     dark = {
@@ -80,8 +67,8 @@ in
     enable = lib.mkEnableOption "system-wide Stylix theming";
     theme = lib.mkOption {
       type = lib.types.enum themes;
-      default = "windir";
-      description = "Black Metal palette used by Stylix.";
+      default = "min-dark";
+      description = "Theme palette used by Stylix.";
     };
   };
 
@@ -90,7 +77,7 @@ in
       enable = true;
       autoEnable = true;
       polarity = "dark";
-      base16Scheme = ./themes + "/${cfg.theme}.yaml";
+      base16Scheme = themesDirectory + "/${cfg.theme}.yaml";
 
       cursor = {
         name = "Vanilla-DMZ";

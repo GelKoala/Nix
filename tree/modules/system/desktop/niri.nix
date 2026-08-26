@@ -21,6 +21,8 @@ in
   config = lib.mkIf (cfg.enable || isNiriSession) {
     programs.niri.enable = true;
     services.displayManager.defaultSession = SystemConfig.session;
+    environment.sessionVariables.XDG_MENU_PREFIX = "plasma-";
+
     environment.systemPackages = with pkgs; [
       procps
       playerctl

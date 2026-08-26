@@ -3,8 +3,9 @@ xwayland-satellite {
     path "xwayland-satellite"
 }
 spawn-at-startup "noctalia"
-// spawn-at-startup "vesktop"
-// spawn-at-startup "swaybg" "-i" "/storage/Media/sky.jpg" "-m" "fill"
+spawn-at-startup "vesktop"
+spawn-at-startup "vivaldi"
+    // spawn-at-startup "swaybg" "-i" "/storage/Media/sky.jpg" "-m" "fill"
 
 input {
     keyboard {
@@ -21,11 +22,11 @@ input {
         accel-profile "flat"
     }
     tablet {
-        map-to-output "DP-2"
+        map-to-output "DP-1"
     }
 }
 
-output "DP-2" {
+output "DP-1" {
     mode "2560x1080@74.991"
     scale 1.0
     variable-refresh-rate on-demand=true
@@ -86,7 +87,10 @@ window-rule {
     clip-to-geometry true
     draw-border-with-background false
 }
-
+window-rule {
+    match app-id=r#"^Minecraft\^"#
+    variable-refresh-rate true
+}
 window-rule {
     match is-active=false
     opacity 0.97
@@ -115,6 +119,7 @@ window-rule {
 window-rule {
     match app-id="^vivaldi-stable$"
     open-maximized true
+    variable-refresh-rate true
 }
 
 window-rule {
@@ -219,8 +224,4 @@ blur {
     offset 3
     noise 0.05
     saturation 1.0
-}
-
-debug {
-    disable-cursor-plane
 }

@@ -20,7 +20,7 @@
         };
         fileManager = {
           package = "dolphin";
-          desktop = "dolphin.desktop";
+          desktop = "org.kde.dolphin.desktop";
         };
         pdf = {
           package = "vivaldi";

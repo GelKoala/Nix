@@ -6,26 +6,26 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      pnpm
+      yarn
+      _7zz
+      unar
+      foot
       hello
+      qimgv
+      unzip
+      thunar
+      vesktop
+      zathura
+      jamesdsp
       keepassxc
       nodejs_24
-      pnpm
-      protonmail-bridge
-      qimgv
-      unstable.codex
-      unstable.pear-desktop
-      unstable.spotify
-      vesktop
-      unzip
-      yarn
-      thunar
-      zathura
       quicksand
-      jamesdsp
-      _7zip-zstd
-      unar
       innoextract
-      foot
+      unstable.croc
+      unstable.codex
+      kdePackages.ark
+      protonmail-bridge
     ];
   };
 }

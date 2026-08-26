@@ -3,6 +3,7 @@
 let
   cfg = config.modules.home.defaultApps;
   apps = UserConfig.apps;
+  archiveManager = "org.kde.ark.desktop";
 in
 {
   options.modules.home.defaultApps.enable =
@@ -28,7 +29,15 @@ in
           "application/pdf" = apps.pdf.desktop;
           #-------Directory-------
           "inode/directory" = apps.fileManager.desktop;
+          #-------Archives-------
+          "application/zip" = archiveManager;
+          "application/x-zip-compressed" = archiveManager;
+          "application/x-7z-compressed" = archiveManager;
+          "application/vnd.rar" = archiveManager;
+          "application/x-rar" = archiveManager;
+          "application/x-tar" = archiveManager;
         };
+        associations.removed."inode/directory" = [ "kitty-open.desktop" ];
       };
       configFile."xfce4/helpers.rc".text = ''
         TerminalEmulator=${apps.terminal.package}
