@@ -1,0 +1,24 @@
+{ ... }:
+{
+  flake.modules.nixos.storage =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        exfatprogs
+        gnome-disk-utility
+        kdePackages.partitionmanager
+      ];
+
+      fileSystems."/storage" = {
+        device = "/dev/disk/by-uuid/363af083-f816-44d5-95a6-f098aef4d67c";
+        fsType = "btrfs";
+        options = [
+          "defaults"
+          "nofail"
+        ];
+      };
+
+      services.udisks2.enable = true;
+      zramSwap.enable = true;
+    };
+}

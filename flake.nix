@@ -29,14 +29,7 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
-    let
-      inherit (import ./tree/parts/_settings.nix) SystemConfig UserConfig;
-      parts = inputs."import-tree" ./tree/parts;
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } (parts // {
-      systems = [ SystemConfig.system ];
-      _module.args = { inherit SystemConfig UserConfig; };
-    });
-
+  outputs =
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs."import-tree" ./modules);
 }
