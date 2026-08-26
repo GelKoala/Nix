@@ -35,6 +35,7 @@
           wl-clipboard
           cliphist
           brightnessctl
+          ddcutil
           pwvucontrol
           pavucontrol
           networkmanagerapplet
@@ -46,7 +47,12 @@
           upower.enable = true;
           power-profiles-daemon.enable = true;
         };
-        hardware.bluetooth.enable = true;
+        hardware = {
+          bluetooth.enable = true;
+          i2c.enable = true;
+        };
+
+        users.users.${user.username}.extraGroups = [ "i2c" ];
 
         systemd.user.services.niri = {
           restartIfChanged = false;

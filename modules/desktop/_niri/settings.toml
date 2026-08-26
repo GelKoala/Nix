@@ -3,6 +3,12 @@ config_version = 2
 [backdrop]
 blur_intensity = 0.39999999105930328
 
+[brightness]
+enable_ddcutil = true
+
+    [brightness.monitor.DP-1]
+    backend = "ddcutil"
+
 [bar.main]
 auto_hide = false
 background_opacity = 0.97999997809529305
